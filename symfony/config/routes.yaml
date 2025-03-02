@@ -1,5 +1,4 @@
-controllers:
-    resource:
-        path: ../src/Controller/
-        namespace: App\Controller
-    type: attribute
+api_home:
+    path: /api/home
+    controller: App\Controller\ApiController::home
+    methods: GET
