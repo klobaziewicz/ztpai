@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Nav from './Nav'
 
 function Home() {
     const [data, setData] = useState(null);
@@ -12,6 +13,7 @@ function Home() {
 
     return (
         <div>
+            <Nav />
             <div>
                 {data ? data.message : "Loading..."}
             </div>

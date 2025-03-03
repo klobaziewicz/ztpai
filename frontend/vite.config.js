@@ -1,3 +1,4 @@
+import path from 'path';
 export default {
   server: {
     port: 5173,
@@ -8,5 +9,10 @@ export default {
         secure: false
       }
     }
-  }
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+    },
+  },
 };
