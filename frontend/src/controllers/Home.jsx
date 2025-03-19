@@ -17,9 +17,6 @@ function Home() {
             <div>
                 {data ? data.message : "Loading..."}
             </div>
-            <div>
-                wow!
-            </div>
         </div>
     );
 }
