@@ -23,6 +23,7 @@ class User
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $nick = null;
 
+
     public function getId(): ?int
     {
         return $this->id;
