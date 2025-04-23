@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  backend:
+    container_name: symfony_app
+    build:
+      context: ./symfony
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - SYMFONY_ALLOW_ALL_IPS=1
+    volumes:
+      - ./symfony:/var/www/symfony
+    working_dir: /var/www/symfony
+    command: symfony server:start --no-tls --allow-all-ip
+    networks:
+      - app_network
+
+  frontend:
+    container_name: react_app
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    working_dir: /app
+    command: npm start
+    networks:
+      - app_network
+  db:
+    image: postgres:15
+    container_name: postgres_db
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: db_zdpai
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+    networks:
+      - app_network
+
+networks:
+  app_network:
+    driver: bridge
+
+volumes:
+  db_data:

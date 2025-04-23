@@ -1,0 +1,43 @@
+.header {
+    align-items: center;
+    background-color: #2e251e;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-color: black;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    height: 59px;
+    padding: 10px;
+    position: relative;
+    width: 917px;
+}
+
+.header .block {
+    flex: 0 0 auto;
+    margin-bottom: -21.75px;
+    margin-top: -21.75px;
+    position: relative;
+}
+
+.header .navigation-pill-list {
+    align-items: flex-start;
+    display: flex;
+    flex: 1;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-bottom: -18.50px;
+    margin-top: -18.50px;
+    position: relative;
+}
+
+.header .navigation-pill-instance {
+    flex: 0 0 auto !important;
+}
+
+.header .header-auth-instance {
+    margin-bottom: -18.50px !important;
+    margin-top: -18.50px !important;
+}
