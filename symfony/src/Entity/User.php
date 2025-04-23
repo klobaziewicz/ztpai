@@ -23,6 +23,9 @@ class User
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $nick = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $email = null;
+
 
     public function getId(): ?int
     {
@@ -38,6 +41,17 @@ class User
     {
         $this->name = $name;
 
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(?string $email): static
+    {
+        $this->email = $email;
         return $this;
     }
 
