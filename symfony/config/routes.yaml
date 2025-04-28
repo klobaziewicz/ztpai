@@ -11,12 +11,19 @@ api_user:
     controller: App\Controller\ApiController::getUserByNick
     methods: GET
 api_posts:
-    path: /api/posts/{id}
+    path: /api/posts
+    controller: App\Controller\ApiController::getPosts
+    methods: GET
+api_postId:
+    path: /api/post/{id}
     controller: App\Controller\ApiController::getPostById
     methods: GET
 api_userId:
     path: /api/userId/{id}
     controller: App\Controller\ApiController::getUserById
     methods: GET
-
+api_createUser:
+    path: /api/createUser
+    controller: App\Controller\ApiController::createUser
+    methods: POST
 
