@@ -113,6 +113,29 @@
       <path value="$PROJECT_DIR$/symfony/vendor/doctrine/doctrine-bundle" />
       <path value="$PROJECT_DIR$/symfony/vendor/doctrine/orm" />
       <path value="$PROJECT_DIR$/symfony/vendor/doctrine/doctrine-migrations-bundle" />
+      <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/annotations" />
+      <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/vendor/zircote/swagger-php" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/vendor/nelmio/api-doc-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/options-resolver" />
+      <path value="$PROJECT_DIR$/vendor/symfony/property-info" />
+      <path value="$PROJECT_DIR$/vendor/symfony/type-info" />
+      <path value="$PROJECT_DIR$/vendor/phpstan/phpdoc-parser" />
+      <path value="$PROJECT_DIR$/symfony/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/symfony/vendor/zircote/swagger-php" />
+      <path value="$PROJECT_DIR$/symfony/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/symfony/vendor/symfony/options-resolver" />
+      <path value="$PROJECT_DIR$/symfony/vendor/symfony/property-info" />
+      <path value="$PROJECT_DIR$/symfony/vendor/symfony/type-info" />
+      <path value="$PROJECT_DIR$/symfony/vendor/nelmio/api-doc-bundle" />
+      <path value="$PROJECT_DIR$/symfony/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/symfony/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/symfony/vendor/phpstan/phpdoc-parser" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.2" />
