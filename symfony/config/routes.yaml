@@ -14,5 +14,9 @@ api_posts:
     path: /api/posts/{id}
     controller: App\Controller\ApiController::getPostById
     methods: GET
+api_userId:
+    path: /api/userId/{id}
+    controller: App\Controller\ApiController::getUserById
+    methods: GET
 
 

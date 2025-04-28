@@ -35,7 +35,7 @@ class ApiController extends AbstractController
                     'id' => $user->getId(),
                     'name' => $user->getName(),
                     'nick' => $user->getNick(),
-                    'email' => $user->getEmail(), // Zakładając, że masz pole email w bazie
+                    'email' => $user->getEmail(),
                 ];
             }
 
@@ -48,33 +48,35 @@ class ApiController extends AbstractController
     #[Route('/user/{nick}', name: 'get_user_by_nick', methods: ['GET'])]
     public function getUserByNick(string $nick): JsonResponse
     {
-        $users = [
-            1 => ['id' => 1, 'nick'=>'jkowalski','name' => 'Jan Kowalski', 'email' =>
-                'jan@example.com'],
-            2 => ['id' => 2, 'nick'=>'anowak', 'name' => 'Anna Nowak', 'email' =>
-                'anna@example.com'],
-        ];
-        foreach ($users as $user) {
-            if ($user['nick'] === $nick) {
-                return $this->json($user);
-            }
-        }
-        return $this->json($users[$nick]);
-    }
+        $user = $this->userRepository->findOneBy(['nick' => $nick]);
 
-    #[Route('/users/{id}', name: 'get_user_by_id', methods: ['GET'])]
-    public function getUserById(int $id): JsonResponse
-    {
-        $users = [
-            1 => ['id' => 1, 'name' => 'Jan Kowalski', 'email' => 'jan@example.com'],
-            2 => ['id' => 2, 'name' => 'Anna Nowak', 'email' => 'anna@example.com'],
-        ];
-
-        if (!isset($users[$id])) {
+        if (!$user) {
             return $this->json(['error' => 'User not found'], 404);
         }
 
-        return $this->json($users[$id]);
+        return $this->json([
+            'id' => $user->getId(),
+            'name' => $user->getName(),
+            'nick' => $user->getNick(),
+            'email' => $user->getEmail(),
+        ]);
+    }
+
+    #[Route('/userId/{id}', name: 'get_user_by_id', methods: ['GET'], requirements: ['id' => '\d+'])]
+    public function getUserById(int $id): JsonResponse
+    {
+        $user = $this->userRepository->find($id);
+
+        if (!$user) {
+            return $this->json(['error' => 'User not found'], 404);
+        }
+
+        return $this->json([
+            'id' => $user->getId(),
+            'name' => $user->getName(),
+            'nick' => $user->getNick(),
+            'email' => $user->getEmail(),
+        ]);
     }
 
     #[Route('/posts/{id}', name: 'get_post_by_id', methods: ['GET'])]
