@@ -9,6 +9,8 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 #[Route('/api', name: 'api_')]
 class ApiController extends AbstractController
@@ -20,34 +22,22 @@ class ApiController extends AbstractController
         $this->userRepository = $userRepository;
         $this->postRepository = $postRepository;
     }
-    #[Route('/home', name: 'home', methods: ['GET'])]
-    public function home(): JsonResponse
-    {
-        return new JsonResponse(['message' => 'Welcome to Symfony API']);
-    }
 
     #[Route('/users', name: 'users', methods: ['GET'])]
     public function getUsers(): JsonResponse
     {
-        try {
-            // Pobieranie użytkowników z bazy danych
-            $users = $this->userRepository->findAll();
+        $users = $this->userRepository->findAll();
 
-            // Mapowanie wyników na format JSON
-            $userData = [];
-            foreach ($users as $user) {
-                $userData[] = [
-                    'id' => $user->getId(),
-                    'name' => $user->getName(),
-                    'nick' => $user->getNick(),
-                    'email' => $user->getEmail(),
-                ];
-            }
+        $userData = array_map(function (User $user) {
+            return [
+                'id' => $user->getId(),
+                'name' => $user->getName(),
+                'nick' => $user->getNick(),
+                'email' => $user->getEmail(),
+            ];
+        }, $users);
 
-            return $this->json($userData);
-        } catch (\Exception $e) {
-            return new JsonResponse(['error' => $e->getMessage()], 500);
-        }
+        return $this->json($userData);
     }
 
     #[Route('/user/{nick}', name: 'get_user_by_nick', methods: ['GET'])]
@@ -56,7 +46,7 @@ class ApiController extends AbstractController
         $user = $this->userRepository->findOneBy(['nick' => $nick]);
 
         if (!$user) {
-            return $this->json(['error' => 'User not found'], 404);
+            throw new NotFoundHttpException('User not found');
         }
 
         return $this->json([
@@ -73,7 +63,7 @@ class ApiController extends AbstractController
         $user = $this->userRepository->find($id);
 
         if (!$user) {
-            return $this->json(['error' => 'User not found'], 404);
+            throw new NotFoundHttpException('User not found');
         }
 
         return $this->json([
@@ -87,22 +77,18 @@ class ApiController extends AbstractController
     #[Route('/posts', name: 'get_posts', methods: ['GET'])]
     public function getPosts(): JsonResponse
     {
-        try {
-            $posts = $this->postRepository->findAll();
-            $postData = [];
-            foreach ($posts as $post) {
-                $postData[] = [
-                    'id' => $post->getId(),
-                    'user' => $post->getUser(),
-                    'content' => $post->getContent(),
-                    'createdAt' => $post->getCreatedAt(),
-                ];
-            }
+        $posts = $this->postRepository->findAll();
 
-            return $this->json($postData);
-        } catch (\Exception $e) {
-            return new JsonResponse(['error' => $e->getMessage()], 500);
-        }
+        $postData = array_map(function ($post) {
+            return [
+                'id' => $post->getId(),
+                'user' => $post->getUser(),
+                'content' => $post->getContent(),
+                'createdAt' => $post->getCreatedAt(),
+            ];
+        }, $posts);
+
+        return $this->json($postData);
     }
 
     #[Route('/post/{id}', name: 'get_post_by_id', methods: ['GET'])]
@@ -111,7 +97,7 @@ class ApiController extends AbstractController
         $post = $this->postRepository->find($id);
 
         if (!$post) {
-            return $this->json(['error' => 'User not found'], 404);
+            throw new NotFoundHttpException('Post not found');
         }
 
         return $this->json([
@@ -124,31 +110,30 @@ class ApiController extends AbstractController
     #[Route('/createUser', name: 'create_user', methods: ['POST'])]
     public function createUser(Request $request): JsonResponse
     {
-        try {
-            $data = json_decode($request->getContent(), true);
+        $data = json_decode($request->getContent(), true);
 
-            unset($data['id']);
-            $name = $data['name'] ?? null;
-            $nick = $data['nick'] ?? null;
-            $email = $data['email'] ?? null;
-            $password = $data['password'] ?? null;
-
-            if (!$name || !$nick || !$email || !$password) {
-                return $this->json(['error' => 'Missing required fields'], 400);
-            }
-
-            $user = new User();
-            $user->setName($name)
-                ->setNick($nick)
-                ->setEmail($email)
-                ->setPassword($password);
-
-            $this->userRepository->save($user, true);
-
-            return $this->json(['message' => 'User created successfully'], 201);
-
-        } catch (\Exception $e) {
-            return new JsonResponse(['error' => $e->getMessage()], 500);
+        if (!$data) {
+            throw new BadRequestHttpException('Invalid JSON');
         }
+
+        unset($data['id']);
+        $name = $data['name'] ?? null;
+        $nick = $data['nick'] ?? null;
+        $email = $data['email'] ?? null;
+        $password = $data['password'] ?? null;
+
+        if (!$name || !$nick || !$email || !$password) {
+            throw new BadRequestHttpException('Missing required fields');
+        }
+
+        $user = new User();
+        $user->setName($name)
+            ->setNick($nick)
+            ->setEmail($email)
+            ->setPassword($password);
+
+        $this->userRepository->save($user, true);
+
+        return $this->json(['message' => 'User created successfully'], 201);
     }
 }

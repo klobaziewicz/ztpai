@@ -5,27 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4fb99715-f66c-458e-b2e1-6160930cc829" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/symfony/config/packages/nelmio_api_doc.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/symfony/config/routes/nelmio_api_doc.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/doctrine/annotations" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/nelmio/api-doc-bundle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/nikic/php-parser" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/phpstan/phpdoc-parser" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/symfony/options-resolver" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/symfony/property-info" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/symfony/type-info" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/symfony/yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/webmozart/assert" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/symfony/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/symfony/src/EventListener/ExceptionListener.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/public/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/src/Controller/ApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Controller/ApiController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,11 +186,11 @@
       <recent name="C:\Users\User\Desktop\KŁ\ztpai\frontend\src\controllers" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Desktop\KŁ\ztpai\symfony\public" />
       <recent name="C:\Users\User\Desktop\KŁ\ztpai\frontend\src" />
       <recent name="C:\Users\User\Desktop\KŁ\ztpai\frontend\public" />
       <recent name="C:\Users\User\Desktop\KŁ\ztpai\symfony" />
       <recent name="C:\Users\User\Desktop\KŁ\ztpai" />
-      <recent name="C:\Users\User\Desktop\KŁ\ztpai\frontend" />
     </key>
   </component>
   <component name="RunManager">
@@ -250,7 +235,9 @@
       <workItem from="1745436768948" duration="747000" />
       <workItem from="1745828732301" duration="1433000" />
       <workItem from="1745852083097" duration="3420000" />
-      <workItem from="1745877092541" duration="375000" />
+      <workItem from="1745877092541" duration="524000" />
+      <workItem from="1745943929753" duration="3242000" />
+      <workItem from="1745947754784" duration="788000" />
     </task>
     <servers />
   </component>
