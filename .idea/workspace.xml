@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4fb99715-f66c-458e-b2e1-6160930cc829" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/symfony/tests/Controller/ApiControllerIntegrationTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/.env.test" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/.env.test" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/src/Entity/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Entity/Post.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/tests/Controller/ApiControllerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/tests/Controller/ApiControllerTest.php" afterDir="false" />
-    </list>
+    <list default="true" id="4fb99715-f66c-458e-b2e1-6160930cc829" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -272,7 +265,7 @@
       <workItem from="1745947754784" duration="926000" />
       <workItem from="1746182471019" duration="793000" />
       <workItem from="1746185337583" duration="5581000" />
-      <workItem from="1746203625362" duration="2461000" />
+      <workItem from="1746203625362" duration="2609000" />
     </task>
     <servers />
   </component>
