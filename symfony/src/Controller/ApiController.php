@@ -2,93 +2,138 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
 use App\Repository\UserRepository;
+use App\Repository\PostRepository;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 #[Route('/api', name: 'api_')]
 class ApiController extends AbstractController
 {
     private UserRepository $userRepository;
-    public function __construct(UserRepository $userRepository)
+    private PostRepository $postRepository;
+    public function __construct(UserRepository $userRepository, PostRepository $postRepository)
     {
         $this->userRepository = $userRepository;
-    }
-    #[Route('/home', name: 'home', methods: ['GET'])]
-    public function home(): JsonResponse
-    {
-        return new JsonResponse(['message' => 'Welcome to Symfony API']);
+        $this->postRepository = $postRepository;
     }
 
     #[Route('/users', name: 'users', methods: ['GET'])]
     public function getUsers(): JsonResponse
     {
-        try {
-            // Pobieranie użytkowników z bazy danych
-            $users = $this->userRepository->findAll();
+        $users = $this->userRepository->findAll();
 
-            // Mapowanie wyników na format JSON
-            $userData = [];
-            foreach ($users as $user) {
-                $userData[] = [
-                    'id' => $user->getId(),
-                    'name' => $user->getName(),
-                    'nick' => $user->getNick(),
-                    'email' => $user->getEmail(), // Zakładając, że masz pole email w bazie
-                ];
-            }
+        $userData = array_map(function (User $user) {
+            return [
+                'id' => $user->getId(),
+                'name' => $user->getName(),
+                'nick' => $user->getNick(),
+                'email' => $user->getEmail(),
+            ];
+        }, $users);
 
-            return $this->json($userData);
-        } catch (\Exception $e) {
-            return new JsonResponse(['error' => $e->getMessage()], 500);
-        }
+        return $this->json($userData);
     }
 
     #[Route('/user/{nick}', name: 'get_user_by_nick', methods: ['GET'])]
     public function getUserByNick(string $nick): JsonResponse
     {
-        $users = [
-            1 => ['id' => 1, 'nick'=>'jkowalski','name' => 'Jan Kowalski', 'email' =>
-                'jan@example.com'],
-            2 => ['id' => 2, 'nick'=>'anowak', 'name' => 'Anna Nowak', 'email' =>
-                'anna@example.com'],
-        ];
-        foreach ($users as $user) {
-            if ($user['nick'] === $nick) {
-                return $this->json($user);
-            }
+        $user = $this->userRepository->findOneBy(['nick' => $nick]);
+
+        if (!$user) {
+            throw new NotFoundHttpException('User not found');
         }
-        return $this->json($users[$nick]);
+
+        return $this->json([
+            'id' => $user->getId(),
+            'name' => $user->getName(),
+            'nick' => $user->getNick(),
+            'email' => $user->getEmail(),
+        ]);
     }
 
-    #[Route('/users/{id}', name: 'get_user_by_id', methods: ['GET'])]
+    #[Route('/userId/{id}', name: 'get_user_by_id', methods: ['GET'], requirements: ['id' => '\d+'])]
     public function getUserById(int $id): JsonResponse
     {
-        $users = [
-            1 => ['id' => 1, 'name' => 'Jan Kowalski', 'email' => 'jan@example.com'],
-            2 => ['id' => 2, 'name' => 'Anna Nowak', 'email' => 'anna@example.com'],
-        ];
+        $user = $this->userRepository->find($id);
 
-        if (!isset($users[$id])) {
-            return $this->json(['error' => 'User not found'], 404);
+        if (!$user) {
+            throw new NotFoundHttpException('User not found');
         }
 
-        return $this->json($users[$id]);
+        return $this->json([
+            'id' => $user->getId(),
+            'name' => $user->getName(),
+            'nick' => $user->getNick(),
+            'email' => $user->getEmail(),
+        ]);
     }
 
-    #[Route('/posts/{id}', name: 'get_post_by_id', methods: ['GET'])]
+    #[Route('/posts', name: 'get_posts', methods: ['GET'])]
+    public function getPosts(): JsonResponse
+    {
+        $posts = $this->postRepository->findAll();
+
+        $postData = array_map(function ($post) {
+            return [
+                'id' => $post->getId(),
+                'user' => $post->getUser(),
+                'content' => $post->getContent(),
+                'createdAt' => $post->getCreatedAt(),
+            ];
+        }, $posts);
+
+        return $this->json($postData);
+    }
+
+    #[Route('/post/{id}', name: 'get_post_by_id', methods: ['GET'])]
     public function getPostById(int $id): JsonResponse
     {
-        $posts = [
-            1 => ['id' => 1, 'name' => 'Jan Kowalski', 'content' =>
-                'post 1'],
-            2 => ['id' => 2, 'name' => 'Anna Nowak', 'content' =>
-                'post 2'],
-        ];
-        if (!isset($posts[$id])) {
-            return $this->json(['error' => 'User not found'], 404);
+        $post = $this->postRepository->find($id);
+
+        if (!$post) {
+            throw new NotFoundHttpException('Post not found');
         }
-        return $this->json($posts[$id]);
+
+        return $this->json([
+           'id' => $post->getId(),
+           'user' => $post->getUser(),
+           'content' => $post->getContent(),
+           'createdAt' => $post->getCreatedAt(),
+        ]);
+    }
+    #[Route('/createUser', name: 'create_user', methods: ['POST'])]
+    public function createUser(Request $request): JsonResponse
+    {
+        $data = json_decode($request->getContent(), true);
+
+        if (!$data) {
+            throw new BadRequestHttpException('Invalid JSON');
+        }
+
+        unset($data['id']);
+        $name = $data['name'] ?? null;
+        $nick = $data['nick'] ?? null;
+        $email = $data['email'] ?? null;
+        $password = $data['password'] ?? null;
+
+        if (!$name || !$nick || !$email || !$password) {
+            throw new BadRequestHttpException('Missing required fields');
+        }
+
+        $user = new User();
+        $user->setName($name)
+            ->setNick($nick)
+            ->setEmail($email)
+            ->setPassword($password);
+
+        $this->userRepository->save($user, true);
+
+        return $this->json(['message' => 'User created successfully'], 201);
     }
 }

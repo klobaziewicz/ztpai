@@ -16,7 +16,8 @@ WORKDIR /var/www/symfony
 EXPOSE 8000
 
 # Start Symfony server
-CMD ["symfony", "server:start", "--no-tls", "--dir=/var/www/symfony"]
+#CMD ["symfony", "server:start", "--no-tls", "--dir=/var/www/symfony"]
+CMD ["php", "-S", "0.0.0.0:8000", "-t", "public"]
 
 RUN docker-php-ext-install pdo pdo_pgsql
 

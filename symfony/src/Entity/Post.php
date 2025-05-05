@@ -23,20 +23,13 @@ class Post
     #[ORM\Column(type: 'datetime')]
     private \DateTimeInterface $createdAt;
 
-    #[ORM\OneToMany(mappedBy: 'post', targetEntity: Comment::class, cascade: ['remove'])]
-    private Collection $comments;
-
-    #[ORM\OneToMany(mappedBy: 'post', targetEntity: Like::class, cascade: ['remove'])]
-    private Collection $likes;
-
     public function __construct()
     {
         $this->createdAt = new \DateTime();
-        $this->comments = new ArrayCollection();
-        $this->likes = new ArrayCollection();
     }
 
     public function getId(): ?int { return $this->id; }
+    public function setId(int $id): static { $this->id = $id; return $this; }
 
     public function getUser(): ?User { return $this->user; }
     public function setUser(User $user): static { $this->user = $user; return $this; }
@@ -45,7 +38,4 @@ class Post
     public function setContent(string $content): static { $this->content = $content; return $this; }
 
     public function getCreatedAt(): \DateTimeInterface { return $this->createdAt; }
-
-    public function getComments(): Collection { return $this->comments; }
-    public function getLikes(): Collection { return $this->likes; }
 }
