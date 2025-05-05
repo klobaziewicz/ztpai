@@ -4,7 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4fb99715-f66c-458e-b2e1-6160930cc829" name="Changes" comment="" />
+    <list default="true" id="4fb99715-f66c-458e-b2e1-6160930cc829" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/frontend/src/controllers/Register.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/routes.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/migrations/Version20250402210827.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/migrations/Version20250402223431.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/migrations/Version20250403150247.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/migrations/Version20250422132036.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/migrations/Version20250422135409.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/src/Controller/ApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Controller/ApiController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/src/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Repository/UserRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/symfony.lock" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -179,6 +199,21 @@
       <path value="$PROJECT_DIR$/symfony/vendor/sebastian/resource-operations" />
       <path value="$PROJECT_DIR$/symfony/vendor/sebastian/code-unit-reverse-lookup" />
       <path value="$PROJECT_DIR$/symfony/vendor/phar-io/manifest" />
+      <path value="$PROJECT_DIR$/symfony/vendor/symfony/clock" />
+      <path value="$PROJECT_DIR$/symfony/vendor/symfony/security-core" />
+      <path value="$PROJECT_DIR$/symfony/vendor/symfony/security-http" />
+      <path value="$PROJECT_DIR$/symfony/vendor/symfony/property-access" />
+      <path value="$PROJECT_DIR$/symfony/vendor/symfony/security-csrf" />
+      <path value="$PROJECT_DIR$/symfony/vendor/symfony/password-hasher" />
+      <path value="$PROJECT_DIR$/symfony/vendor/symfony/security-bundle" />
+      <path value="$PROJECT_DIR$/symfony/vendor/symfony/polyfill-intl-icu" />
+      <path value="$PROJECT_DIR$/symfony/vendor/symfony/validator" />
+      <path value="$PROJECT_DIR$/symfony/vendor/symfony/twig-bridge" />
+      <path value="$PROJECT_DIR$/symfony/vendor/symfony/twig-bundle" />
+      <path value="$PROJECT_DIR$/symfony/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/symfony/vendor/symfony/form" />
+      <path value="$PROJECT_DIR$/symfony/vendor/twig/twig" />
+      <path value="$PROJECT_DIR$/symfony/vendor/psr/clock" />
     </include_path>
   </component>
   <component name="ProjectColorInfo">{
@@ -266,6 +301,9 @@
       <workItem from="1746182471019" duration="793000" />
       <workItem from="1746185337583" duration="5581000" />
       <workItem from="1746203625362" duration="2609000" />
+      <workItem from="1746453073679" duration="4642000" />
+      <workItem from="1746465069845" duration="2052000" />
+      <workItem from="1746476659559" duration="5185000" />
     </task>
     <servers />
   </component>

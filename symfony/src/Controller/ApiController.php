@@ -7,10 +7,13 @@ use App\Repository\UserRepository;
 use App\Repository\PostRepository;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Response;
 
 #[Route('/api', name: 'api_')]
 class ApiController extends AbstractController
@@ -135,5 +138,24 @@ class ApiController extends AbstractController
         $this->userRepository->save($user, true);
 
         return $this->json(['message' => 'User created successfully'], 201);
+    }
+
+    #[Route('/register', name: 'register', methods: ['POST'])]
+    public function register(Request $request, UserPasswordHasherInterface $passwordHasher, EntityManagerInterface $em): JsonResponse
+    {
+        $data = json_decode($request->getContent(), true);
+        if (!isset($data['email'], $data['password'], $data['name'], $data['nick'])) {
+            throw new BadRequestHttpException('Missing required fields');
+        }
+        $user = new User();
+        $user->setName($data['name']);
+        $user->setNick($data['nick']);
+        $user->setEmail($data['email']);
+        $user->setPassword($passwordHasher->hashPassword($user, $data['password']));
+        $user->setRoles(['ROLE_USER']);
+        $em->persist($user);
+        $em->flush();
+
+        return new JsonResponse(['status' => 'User registered'], Response::HTTP_CREATED);
     }
 }

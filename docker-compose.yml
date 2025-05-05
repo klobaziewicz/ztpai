@@ -14,7 +14,7 @@ services:
       - ./symfony:/var/www/symfony
     working_dir: /var/www/symfony
     #command: symfony server:start --no-tls --allow-all-ip
-    command: sh -c "symfony server:stop; symfony server:start --no-tls --allow-all-ip"
+    #command: sh -c "symfony server:stop; symfony server:start --no-tls --allow-all-ip"
     networks:
       - app_network
 

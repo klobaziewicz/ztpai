@@ -26,4 +26,8 @@ api_createUser:
     path: /api/createUser
     controller: App\Controller\ApiController::createUser
     methods: POST
+register:
+    path: /api/register
+    controller: App\Controller\ApiController::register
+    methods: POST
 

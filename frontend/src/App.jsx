@@ -5,12 +5,14 @@ import UserList from "./controllers/UserList";
 import NotFound from "./controllers/NotFound";
 import UserDetail from './controllers/UserDetail';
 import CreateUserForm from './controllers/CreateUserForm';
+import Register from './controllers/Register';
 
 function App() {
     return (
         <Router>
             <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/register" element={<Register />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/userlist" element={<UserList />} />
                 <Route path="/user/:nick" element={<UserDetail />} />
