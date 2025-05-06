@@ -29,6 +29,8 @@ class ApiController extends AbstractController
     #[Route('/users', name: 'users', methods: ['GET'])]
     public function getUsers(): JsonResponse
     {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
         $users = $this->userRepository->findAll();
 
         $userData = array_map(function (User $user) {
@@ -158,4 +160,22 @@ class ApiController extends AbstractController
 
         return new JsonResponse(['status' => 'User registered'], Response::HTTP_CREATED);
     }
+//    #[Route('/login', name: 'login', methods: ['POST'])]
+//    public function login(Request $request, UserPasswordHasherInterface $passwordHasher, EntityManagerInterface $em): JsonResponse
+//    {
+//        $data = json_decode($request->getContent(), true);
+//        if (!isset($data['email'], $data['password'], $data['name'], $data['nick'])) {
+//            throw new BadRequestHttpException('Missing required fields');
+//        }
+//        $user = new User();
+//        $user->setName($data['name']);
+//        $user->setNick($data['nick']);
+//        $user->setEmail($data['email']);
+//        $user->setPassword($passwordHasher->hashPassword($user, $data['password']));
+//        $user->setRoles(['ROLE_USER']);
+//        $em->persist($user);
+//        $em->flush();
+//
+//        return new JsonResponse(['status' => 'User registered'], Response::HTTP_CREATED);
+//    }
 }

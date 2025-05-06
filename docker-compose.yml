@@ -10,8 +10,10 @@ services:
       - "8000:8000"
     environment:
       - SYMFONY_ALLOW_ALL_IPS=1
+      - JWT_PASSPHRASE=Krzys2408
     volumes:
       - ./symfony:/var/www/symfony
+      - ./config/jwt:/app/config/jwt
     working_dir: /var/www/symfony
     #command: symfony server:start --no-tls --allow-all-ip
     #command: sh -c "symfony server:stop; symfony server:start --no-tls --allow-all-ip"

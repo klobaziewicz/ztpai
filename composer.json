@@ -1,6 +1,7 @@
 {
     "require": {
-        "nelmio/cors-bundle": "*",
-        "symfony/orm-pack": "^2.4"
+        "nelmio/cors-bundle": "^2.5",
+        "symfony/orm-pack": "^2.4",
+        "lexik/jwt-authentication-bundle": "^3.1"
     }
 }

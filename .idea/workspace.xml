@@ -5,25 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4fb99715-f66c-458e-b2e1-6160930cc829" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/controllers/Register.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/symfony/config/packages/lexik_jwt_authentication.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/controllers/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/controllers/Login.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/controllers/UserDetail.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/controllers/UserDetail.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/.env" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/symfony/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/symfony/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/symfony/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/packages/security.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/symfony/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/routes.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/migrations/Version20250402210827.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/migrations/Version20250402223431.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/migrations/Version20250403150247.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/migrations/Version20250422132036.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/migrations/Version20250422135409.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/symfony/src/Controller/ApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Controller/ApiController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/src/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Repository/UserRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/symfony/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_files.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_files.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -214,6 +217,21 @@
       <path value="$PROJECT_DIR$/symfony/vendor/symfony/form" />
       <path value="$PROJECT_DIR$/symfony/vendor/twig/twig" />
       <path value="$PROJECT_DIR$/symfony/vendor/psr/clock" />
+      <path value="$PROJECT_DIR$/vendor/lcobucci/clock" />
+      <path value="$PROJECT_DIR$/vendor/lexik/jwt-authentication-bundle" />
+      <path value="$PROJECT_DIR$/vendor/lcobucci/jwt" />
+      <path value="$PROJECT_DIR$/vendor/psr/clock" />
+      <path value="$PROJECT_DIR$/vendor/symfony/property-access" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/clock" />
+      <path value="$PROJECT_DIR$/vendor/symfony/password-hasher" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-core" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-csrf" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-http" />
+      <path value="$PROJECT_DIR$/symfony/vendor/lcobucci/clock" />
+      <path value="$PROJECT_DIR$/symfony/vendor/lcobucci/jwt" />
+      <path value="$PROJECT_DIR$/symfony/vendor/lexik/jwt-authentication-bundle" />
     </include_path>
   </component>
   <component name="ProjectColorInfo">{
@@ -246,11 +264,11 @@
       <recent name="C:\Users\User\Desktop\KŁ\ztpai\frontend\src\controllers" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Desktop\KŁ\ztpai\symfony\config" />
+      <recent name="C:\Users\User\Desktop\KŁ\ztpai\symfony" />
       <recent name="C:\Users\User\Desktop\KŁ\ztpai\symfony\public" />
       <recent name="C:\Users\User\Desktop\KŁ\ztpai\frontend\src" />
       <recent name="C:\Users\User\Desktop\KŁ\ztpai\frontend\public" />
-      <recent name="C:\Users\User\Desktop\KŁ\ztpai\symfony" />
-      <recent name="C:\Users\User\Desktop\KŁ\ztpai" />
     </key>
   </component>
   <component name="RunManager">
@@ -303,7 +321,10 @@
       <workItem from="1746203625362" duration="2609000" />
       <workItem from="1746453073679" duration="4642000" />
       <workItem from="1746465069845" duration="2052000" />
-      <workItem from="1746476659559" duration="5185000" />
+      <workItem from="1746476659559" duration="5424000" />
+      <workItem from="1746531138683" duration="6696000" />
+      <workItem from="1746538365846" duration="2256000" />
+      <workItem from="1746571061535" duration="333000" />
     </task>
     <servers />
   </component>
