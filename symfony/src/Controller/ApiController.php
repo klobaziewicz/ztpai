@@ -29,7 +29,7 @@ class ApiController extends AbstractController
     #[Route('/users', name: 'users', methods: ['GET'])]
     public function getUsers(): JsonResponse
     {
-        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+        $this->denyAccessUnlessGranted('ROLE_USER');
 
         $users = $this->userRepository->findAll();
 
@@ -45,9 +45,21 @@ class ApiController extends AbstractController
         return $this->json($userData);
     }
 
+    #[Route('/home', name: 'home', methods: ['GET'])]
+    public function home(): JsonResponse
+    {
+        //$this->denyAccessUnlessGranted('ROLE_USER');
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
+        return $this->json([
+            'dane' => 'dane dla admina',
+        ]);
+    }
+
     #[Route('/user/{nick}', name: 'get_user_by_nick', methods: ['GET'])]
     public function getUserByNick(string $nick): JsonResponse
     {
+        $this->denyAccessUnlessGranted('ROLE_USER');
         $user = $this->userRepository->findOneBy(['nick' => $nick]);
 
         if (!$user) {

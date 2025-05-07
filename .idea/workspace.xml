@@ -5,28 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4fb99715-f66c-458e-b2e1-6160930cc829" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/symfony/config/packages/lexik_jwt_authentication.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/controllers/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/controllers/Login.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/controllers/UserDetail.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/controllers/UserDetail.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/.env" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/controllers/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/controllers/Home.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/controllers/UserList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/controllers/UserList.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/symfony/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/routes.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/symfony/src/Controller/ApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Controller/ApiController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_files.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_files.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -325,6 +308,7 @@
       <workItem from="1746531138683" duration="6696000" />
       <workItem from="1746538365846" duration="2256000" />
       <workItem from="1746571061535" duration="333000" />
+      <workItem from="1746649789296" duration="2203000" />
     </task>
     <servers />
   </component>
