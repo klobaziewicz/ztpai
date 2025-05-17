@@ -47,6 +47,7 @@ return array(
     'Psr\\Container\\' => array($vendorDir . '/psr/container/src'),
     'Psr\\Clock\\' => array($vendorDir . '/psr/clock/src'),
     'Psr\\Cache\\' => array($vendorDir . '/psr/cache/src'),
+    'PhpAmqpLib\\' => array($vendorDir . '/php-amqplib/php-amqplib/PhpAmqpLib'),
     'Nelmio\\CorsBundle\\' => array($vendorDir . '/nelmio/cors-bundle'),
     'Lexik\\Bundle\\JWTAuthenticationBundle\\' => array($vendorDir . '/lexik/jwt-authentication-bundle'),
     'Lcobucci\\JWT\\' => array($vendorDir . '/lcobucci/jwt/src'),

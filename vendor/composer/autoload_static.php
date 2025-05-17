@@ -66,6 +66,7 @@ class ComposerStaticInit71764d9da485e8bd27f69f590a330454
             'Psr\\Container\\' => 14,
             'Psr\\Clock\\' => 10,
             'Psr\\Cache\\' => 10,
+            'PhpAmqpLib\\' => 11,
         ),
         'N' => 
         array (
@@ -260,6 +261,10 @@ class ComposerStaticInit71764d9da485e8bd27f69f590a330454
         'Psr\\Cache\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/cache/src',
+        ),
+        'PhpAmqpLib\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/php-amqplib/php-amqplib/PhpAmqpLib',
         ),
         'Nelmio\\CorsBundle\\' => 
         array (

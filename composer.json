@@ -2,6 +2,7 @@
     "require": {
         "nelmio/cors-bundle": "^2.5",
         "symfony/orm-pack": "^2.4",
-        "lexik/jwt-authentication-bundle": "^3.1"
+        "lexik/jwt-authentication-bundle": "^3.1",
+        "php-amqplib/php-amqplib": "^2.8"
     }
 }
