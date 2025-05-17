@@ -7,6 +7,7 @@ import UserDetail from './controllers/UserDetail';
 import CreateUserForm from './controllers/CreateUserForm';
 import Register from './controllers/Register';
 import Notification from "./controllers/Notification";
+import Posts from "./controllers/Posts";
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
                 <Route path="/user/:nick" element={<UserDetail />} />
                 <Route path="/create-user" element={<CreateUserForm />} />
                 <Route path="/notification" element={<Notification />} />
+                <Route path="/posts" element={<Posts />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
         </Router>

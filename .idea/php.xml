@@ -197,6 +197,7 @@
       <path value="$PROJECT_DIR$/symfony/vendor/lcobucci/clock" />
       <path value="$PROJECT_DIR$/symfony/vendor/lcobucci/jwt" />
       <path value="$PROJECT_DIR$/symfony/vendor/lexik/jwt-authentication-bundle" />
+      <path value="$PROJECT_DIR$/vendor/php-amqplib/php-amqplib" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.2" />

@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4fb99715-f66c-458e-b2e1-6160930cc829" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/controllers/Posts.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,6 +212,7 @@
       <path value="$PROJECT_DIR$/symfony/vendor/lcobucci/clock" />
       <path value="$PROJECT_DIR$/symfony/vendor/lcobucci/jwt" />
       <path value="$PROJECT_DIR$/symfony/vendor/lexik/jwt-authentication-bundle" />
+      <path value="$PROJECT_DIR$/vendor/php-amqplib/php-amqplib" />
     </include_path>
   </component>
   <component name="ProjectColorInfo">{
@@ -306,7 +308,7 @@
       <workItem from="1746571061535" duration="333000" />
       <workItem from="1746649789296" duration="2628000" />
       <workItem from="1746713958211" duration="610000" />
-      <workItem from="1747501598723" duration="1434000" />
+      <workItem from="1747501598723" duration="2286000" />
     </task>
     <servers />
   </component>
