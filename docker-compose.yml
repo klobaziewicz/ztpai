@@ -11,6 +11,7 @@ services:
     environment:
       - SYMFONY_ALLOW_ALL_IPS=1
       - JWT_PASSPHRASE=Krzys2408
+      - RABBITMQ_URL=amqp://guest:guest@rabbitmq:5672/
     volumes:
       - ./symfony:/var/www/symfony
       - ./config/jwt:/app/config/jwt
@@ -48,6 +49,15 @@ services:
       - "5433:5432"
     networks:
       - app_network
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
 
 networks:
   app_network:
