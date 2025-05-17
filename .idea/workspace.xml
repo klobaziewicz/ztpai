@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4fb99715-f66c-458e-b2e1-6160930cc829" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/frontend/src/controllers/Posts.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/controllers/Posts.jsx" afterDir="false" />
-    </list>
+    <list default="true" id="4fb99715-f66c-458e-b2e1-6160930cc829" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -307,7 +305,7 @@
       <workItem from="1746571061535" duration="333000" />
       <workItem from="1746649789296" duration="2628000" />
       <workItem from="1746713958211" duration="610000" />
-      <workItem from="1747501598723" duration="7216000" />
+      <workItem from="1747501598723" duration="7659000" />
     </task>
     <servers />
   </component>
