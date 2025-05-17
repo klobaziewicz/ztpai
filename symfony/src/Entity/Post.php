@@ -23,6 +23,9 @@ class Post
     #[ORM\Column(type: 'datetime')]
     private \DateTimeInterface $createdAt;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $title = null;
+
     public function __construct()
     {
         $this->createdAt = new \DateTime();
@@ -38,4 +41,16 @@ class Post
     public function setContent(string $content): static { $this->content = $content; return $this; }
 
     public function getCreatedAt(): \DateTimeInterface { return $this->createdAt; }
+
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    public function setTitle(?string $title): static
+    {
+        $this->title = $title;
+
+        return $this;
+    }
 }

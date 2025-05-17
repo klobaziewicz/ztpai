@@ -94,6 +94,7 @@ class ApiController extends AbstractController
     #[Route('/posts', name: 'get_posts', methods: ['GET'])]
     public function getPosts(): JsonResponse
     {
+        $this->denyAccessUnlessGranted('ROLE_USER');
         $posts = $this->postRepository->findAll();
 
         $postData = array_map(function ($post) {

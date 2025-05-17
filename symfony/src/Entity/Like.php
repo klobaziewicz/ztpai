@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\LikesRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: LikesRepository::class)]
@@ -21,6 +22,9 @@ class Like
     #[ORM\JoinColumn(nullable: true, onDelete: 'CASCADE')]
     private ?User $user = null;
 
+    #[ORM\Column(type: 'datetime', nullable: true)]
+    private ?\DateTimeInterface $liked_at = null;
+
     public function getId(): ?int { return $this->id; }
 
     public function getPost(): ?Post { return $this->post; }
@@ -28,4 +32,16 @@ class Like
 
     public function getUser(): ?User { return $this->user; }
     public function setUser(?User $user): static { $this->user = $user; return $this; }
+
+    public function getLikedAt(): ?\DateTimeInterface
+    {
+        return $this->liked_at;
+    }
+
+    public function setLikedAt(?\DateTimeInterface $liked_at): static
+    {
+        $this->liked_at = $liked_at;
+
+        return $this;
+    }
 }

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Nav from "./Nav";
 
 const UsersList = () => {
     const [users, setUsers] = useState([]);
@@ -77,6 +78,7 @@ const UsersList = () => {
 
     return (
         <div>
+            <Nav/>
             <h2>Users List</h2>
             <button onClick={fetchUsers} disabled={loading}>
                 {loading ? "Loading..." : "Refresh"}

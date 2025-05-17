@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4fb99715-f66c-458e-b2e1-6160930cc829" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/controllers/Posts.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/controllers/Posts.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/controllers/Posts.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/controllers/UserList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/controllers/UserList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/src/Controller/ApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Controller/ApiController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/src/Entity/Like.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Entity/Like.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/src/Entity/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Entity/Post.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -308,7 +312,7 @@
       <workItem from="1746571061535" duration="333000" />
       <workItem from="1746649789296" duration="2628000" />
       <workItem from="1746713958211" duration="610000" />
-      <workItem from="1747501598723" duration="2286000" />
+      <workItem from="1747501598723" duration="6756000" />
     </task>
     <servers />
   </component>
