@@ -6,6 +6,7 @@ import NotFound from "./controllers/NotFound";
 import UserDetail from './controllers/UserDetail';
 import CreateUserForm from './controllers/CreateUserForm';
 import Register from './controllers/Register';
+import Notification from "./controllers/Notification";
 
 function App() {
     return (
@@ -17,6 +18,7 @@ function App() {
                 <Route path="/userlist" element={<UserList />} />
                 <Route path="/user/:nick" element={<UserDetail />} />
                 <Route path="/create-user" element={<CreateUserForm />} />
+                <Route path="/notification" element={<Notification />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
         </Router>
