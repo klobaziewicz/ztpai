@@ -5,21 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4fb99715-f66c-458e-b2e1-6160930cc829" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/symfony/src/Service/NotificationConsumer.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/controllers/Posts.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/controllers/Posts.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/controllers/UserList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/controllers/UserList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/controllers/Notification.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/controllers/Notification.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/symfony/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/symfony/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/packages/security.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/symfony/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/routes.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/public/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/symfony/src/Controller/ApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Controller/ApiController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/src/Entity/Like.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Entity/LikePost.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/src/Repository/LikesRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Repository/LikePostRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/src/Service/MessageSender.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Service/NotificationSender.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -227,6 +221,9 @@
       <path value="$PROJECT_DIR$/symfony/vendor/lexik/jwt-authentication-bundle" />
       <path value="$PROJECT_DIR$/vendor/php-amqplib/php-amqplib" />
       <path value="$PROJECT_DIR$/symfony/vendor/php-amqplib/php-amqplib" />
+      <path value="$PROJECT_DIR$/symfony/vendor/paragonie/constant_time_encoding" />
+      <path value="$PROJECT_DIR$/symfony/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/symfony/vendor/phpseclib/phpseclib" />
     </include_path>
   </component>
   <component name="ProjectColorInfo">{
@@ -323,7 +320,9 @@
       <workItem from="1746649789296" duration="2628000" />
       <workItem from="1746713958211" duration="610000" />
       <workItem from="1747501598723" duration="12358000" />
-      <workItem from="1747522256244" duration="4071000" />
+      <workItem from="1747522256244" duration="4473000" />
+      <workItem from="1747580826621" duration="10623000" />
+      <workItem from="1747595805295" duration="2747000" />
     </task>
     <servers />
   </component>

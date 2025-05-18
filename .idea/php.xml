@@ -199,6 +199,9 @@
       <path value="$PROJECT_DIR$/symfony/vendor/lexik/jwt-authentication-bundle" />
       <path value="$PROJECT_DIR$/vendor/php-amqplib/php-amqplib" />
       <path value="$PROJECT_DIR$/symfony/vendor/php-amqplib/php-amqplib" />
+      <path value="$PROJECT_DIR$/symfony/vendor/paragonie/constant_time_encoding" />
+      <path value="$PROJECT_DIR$/symfony/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/symfony/vendor/phpseclib/phpseclib" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.2" />

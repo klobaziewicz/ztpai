@@ -34,6 +34,10 @@ likePost:
     path: /api/likePost
     controller: App\Controller\ApiController::likePost
     methods: POST
+notifications:
+    path: /api/notifications
+    controller: App\Controller\ApiController::notifications
+    methods: GET
 login:
     path: /api/login
     #controller: App\Controller\ApiController::login

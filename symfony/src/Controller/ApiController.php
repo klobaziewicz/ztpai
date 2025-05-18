@@ -16,25 +16,30 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use App\Entity\LikePost;
 use App\Service\NotificationSender;
-//phpinfo();
-//var_dump(bcadd('1', '2'));
+use App\Repository\NotificationRepository;
+use Symfony\Component\Security\Core\User\UserInterface;
+
 #[Route('/api', name: 'api_')]
 class ApiController extends AbstractController
 {
     private UserRepository $userRepository;
     private PostRepository $postRepository;
     private NotificationSender $notificationSender;
+    private NotificationRepository $notificationRepository;
+
     private EntityManagerInterface $em;
     public function __construct(
         UserRepository $userRepository,
         PostRepository $postRepository,
         NotificationSender $notificationSender,
-        EntityManagerInterface $em
+        EntityManagerInterface $em,
+       NotificationRepository $notificationRepository
     ) {
         $this->userRepository = $userRepository;
         $this->postRepository = $postRepository;
         $this->notificationSender = $notificationSender;
         $this->em = $em;
+        $this->notificationRepository = $notificationRepository;
     }
 
     #[Route('/users', name: 'users', methods: ['GET'])]
@@ -223,23 +228,25 @@ class ApiController extends AbstractController
         return $this->json(['success' => true, 'message' => 'Polubiono i wysłano powiadomienie']);
     }
 
+    #[Route('/notifications', name: 'notifications', methods: ['GET'])]
+    public function notifications(UserInterface $user, NotificationRepository $notificationRepository): JsonResponse
+    {
+        $notifications = $notificationRepository->findBy(
+            ['toUser' => $user->getUserIdentifier()],
+            ['createdAt' => 'DESC'],
+            10
+        );
 
-//    #[Route('/login', name: 'login', methods: ['POST'])]
-//    public function login(Request $request, UserPasswordHasherInterface $passwordHasher, EntityManagerInterface $em): JsonResponse
-//    {
-//        $data = json_decode($request->getContent(), true);
-//        if (!isset($data['email'], $data['password'], $data['name'], $data['nick'])) {
-//            throw new BadRequestHttpException('Missing required fields');
-//        }
-//        $user = new User();
-//        $user->setName($data['name']);
-//        $user->setNick($data['nick']);
-//        $user->setEmail($data['email']);
-//        $user->setPassword($passwordHasher->hashPassword($user, $data['password']));
-//        $user->setRoles(['ROLE_USER']);
-//        $em->persist($user);
-//        $em->flush();
-//
-//        return new JsonResponse(['status' => 'User registered'], Response::HTTP_CREATED);
-//    }
+        $data = array_map(function ($notification) {
+            return [
+                'id' => $notification->getId(),
+                'from_user' => $notification->getFromUser(),
+                'to_user' => $notification->getToUser(),
+                'post_id' => $notification->getPostId(),
+                'created_at' => $notification->getCreatedAt()?->format('Y-m-d H:i:s'),
+            ];
+        }, $notifications);
+
+        return $this->json($data);
+    }
 }
