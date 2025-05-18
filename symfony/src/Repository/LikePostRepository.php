@@ -2,22 +2,22 @@
 
 namespace App\Repository;
 
-use App\Entity\Like;
+use App\Entity\LikePost;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Like>
+ * @extends ServiceEntityRepository<LikePost>
  */
-class LikesRepository extends ServiceEntityRepository
+class LikePostRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Like::class);
+        parent::__construct($registry, LikePost::class);
     }
 
     //    /**
-    //     * @return Like[] Returns an array of Like objects
+    //     * @return LikePost[] Returns an array of LikePost objects
     //     */
     //    public function findByExampleField($value): array
     //    {
@@ -31,7 +31,7 @@ class LikesRepository extends ServiceEntityRepository
     //        ;
     //    }
 
-    //    public function findOneBySomeField($value): ?Like
+    //    public function findOneBySomeField($value): ?LikePost
     //    {
     //        return $this->createQueryBuilder('l')
     //            ->andWhere('l.exampleField = :val')

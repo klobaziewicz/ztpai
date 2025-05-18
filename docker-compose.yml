@@ -18,6 +18,8 @@ services:
     working_dir: /var/www/symfony
     #command: symfony server:start --no-tls --allow-all-ip
     #command: sh -c "symfony server:stop; symfony server:start --no-tls --allow-all-ip"
+    depends_on:
+      - rabbitmq
     networks:
       - app_network
 
@@ -58,6 +60,8 @@ services:
     environment:
       - RABBITMQ_DEFAULT_USER=guest
       - RABBITMQ_DEFAULT_PASS=guest
+    networks:
+      - app_network
 
 networks:
   app_network:

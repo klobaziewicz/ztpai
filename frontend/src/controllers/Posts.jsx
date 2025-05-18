@@ -28,8 +28,32 @@ function Posts() {
             .finally(() => setLoadingPost(false));
     };
 
-    const polub = () => {
+    const polub = (post_id) => {
+        setLoadingLike(true);
+        const token=localStorage.getItem('token');
 
+        fetch('http://localhost:8000/api/likePost', {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+                'Authorization': `Bearer ${token}`,
+            },
+            body: JSON.stringify({"post_id": post_id}),
+        })
+            .then(response => {
+                if (!response.ok) {
+                    return response.json().then(err => { throw new Error(err.error || "Unknown error") });
+                }
+                return response.json();
+            })
+            .then(() => {
+                fetchPosts();
+            })
+            .catch(error => {
+                console.error('Sending like error:', error);
+                setError(error.message);
+            })
+            .finally(() => setLoadingLike(false));
     }
 
     useEffect(() => {
@@ -45,17 +69,15 @@ function Posts() {
             </button>
             <ul>
                 {posts.map(post => (
-                    <div>
-                        <li key={post.id}>
+                    <li key={post.id}>
                             <strong>{post.user?.username || "Anonim"}</strong> - {post.content} - {post.createdAt.date}
-                        </li>
-                        <button onClick={polub} disabled={loadingLike}>
+                        <button onClick={() => polub(post.id)} disabled={loadingLike}>
                             {loadingLike ? "Ładowanie..." : "Polub"}
                         </button>
-                    </div>
-            ))}
-        </ul>
-</div>
+                    </li>
+                ))}
+            </ul>
+        </div>
     );
 }
 

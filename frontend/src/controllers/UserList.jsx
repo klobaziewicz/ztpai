@@ -51,6 +51,7 @@ const UsersList = () => {
         setCreating(true);
         setError(null);
 
+        const token=localStorage.getItem('token');
         fetch('http://localhost:8000/api/createUser', {
             method: 'POST',
             headers: {

@@ -2,19 +2,20 @@
 
 namespace App\Entity;
 
-use App\Repository\LikesRepository;
+use App\Repository\LikePostRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: LikesRepository::class)]
-class Like
+#[ORM\Table(name: "likePost")]
+class LikePost
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\ManyToOne(targetEntity: Post::class, inversedBy: 'likes')]
+    #[ORM\ManyToOne(targetEntity: Post::class, inversedBy: 'likePost')]
     #[ORM\JoinColumn(nullable: false, onDelete: 'CASCADE')]
     private ?Post $post = null;
 

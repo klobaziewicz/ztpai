@@ -14,16 +14,27 @@ use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
-
+use App\Entity\LikePost;
+use App\Service\NotificationSender;
+//phpinfo();
+//var_dump(bcadd('1', '2'));
 #[Route('/api', name: 'api_')]
 class ApiController extends AbstractController
 {
     private UserRepository $userRepository;
     private PostRepository $postRepository;
-    public function __construct(UserRepository $userRepository, PostRepository $postRepository)
-    {
+    private NotificationSender $notificationSender;
+    private EntityManagerInterface $em;
+    public function __construct(
+        UserRepository $userRepository,
+        PostRepository $postRepository,
+        NotificationSender $notificationSender,
+        EntityManagerInterface $em
+    ) {
         $this->userRepository = $userRepository;
         $this->postRepository = $postRepository;
+        $this->notificationSender = $notificationSender;
+        $this->em = $em;
     }
 
     #[Route('/users', name: 'users', methods: ['GET'])]
@@ -173,6 +184,46 @@ class ApiController extends AbstractController
 
         return new JsonResponse(['status' => 'User registered'], Response::HTTP_CREATED);
     }
+
+    #[Route('/likePost', name: 'likePost', methods: ['POST'])]
+    public function likePost(Request $request): JsonResponse
+    {
+        $this->denyAccessUnlessGranted('ROLE_USER');
+
+        $data = json_decode($request->getContent(), true);
+        $postId = $data['post_id'] ?? null;
+
+        if (!$postId) {
+            return $this->json(['error' => 'Brak post_id'], 400);
+        }
+
+        $post = $this->postRepository->find($postId);
+        $user = $this->getUser();
+
+        if (!$post) {
+            return $this->json(['error' => 'Post nie istnieje'], 404);
+        }
+
+        $likePost = new LikePost();
+        $likePost->setPost($post);
+        $likePost->setUser($user);
+        $this->em->persist($likePost);
+        $this->em->flush();
+
+        $message = json_encode([
+            'type' => 'likePost',
+            'from_user' => $user->getNick(),
+            'to_user' => $post->getUser()->getNick(),
+            'post_id' => $post->getId(),
+            'timestamp' => time(),
+        ]);
+
+        $this->notificationSender->send($message);
+
+        return $this->json(['success' => true, 'message' => 'Polubiono i wysłano powiadomienie']);
+    }
+
+
 //    #[Route('/login', name: 'login', methods: ['POST'])]
 //    public function login(Request $request, UserPasswordHasherInterface $passwordHasher, EntityManagerInterface $em): JsonResponse
 //    {

@@ -30,6 +30,10 @@ register:
     path: /api/register
     controller: App\Controller\ApiController::register
     methods: POST
+likePost:
+    path: /api/likePost
+    controller: App\Controller\ApiController::likePost
+    methods: POST
 login:
     path: /api/login
     #controller: App\Controller\ApiController::login
