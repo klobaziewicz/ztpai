@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Nav from "./Nav";
+import '../style/loginRegister.css';
 
 function Login() {
     const [formData, setFormData] = useState({

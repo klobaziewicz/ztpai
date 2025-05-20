@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Nav from "./Nav";
 
 function Register() {
     const [formData, setFormData] = useState({
@@ -49,6 +50,7 @@ function Register() {
 
     return (
         <div>
+            <Nav/>
             <h2>Register</h2>
             <form onSubmit={handleSubmit}>
                 <input
