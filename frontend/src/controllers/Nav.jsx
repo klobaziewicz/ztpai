@@ -1,4 +1,4 @@
-import block from "@mui/icons-material/Star";
+import StarIcon  from "@mui/icons-material/Star";
 import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 import React from "react";
@@ -17,7 +17,7 @@ const Nav = () => {
             sx={{ borderBottom: 1, borderColor: "divider", width: "100vw", top: 0 }}
         >
             <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
-                <Box component="img" src={block} alt="Block" sx={{ height: 59 }} />
+                <StarIcon sx={{ fontSize: 59 }} />
 
                 <Box sx={{ display: "flex", flexGrow: 1, justifyContent: "center" }}>
                     <StyledButton variant="contained" color="primary">
