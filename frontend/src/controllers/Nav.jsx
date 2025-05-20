@@ -5,16 +5,16 @@ import React from "react";
 
 const StyledButton = styled(Button)(({ theme }) => ({
     margin: theme.spacing(0.5),
-    padding: theme.spacing(0.5),
+    padding: theme.spacing(1,3,1,3),
     borderRadius: theme.shape.borderRadius,
 }));
 
 const Nav = () => {
     return (
         <AppBar
-            position="static"
+            position="fixed"
             color="default"
-            sx={{ borderBottom: 1, borderColor: "divider" }}
+            sx={{ borderBottom: 1, borderColor: "divider", width: "100vw", top: 0 }}
         >
             <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
                 <Box component="img" src={block} alt="Block" sx={{ height: 59 }} />
