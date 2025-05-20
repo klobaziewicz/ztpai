@@ -5,15 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4fb99715-f66c-458e-b2e1-6160930cc829" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/symfony/src/Service/NotificationConsumer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/controllers/Notification.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/controllers/Notification.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/routes.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/src/Controller/ApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Controller/ApiController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/controllers/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/controllers/Login.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -323,6 +316,7 @@
       <workItem from="1747522256244" duration="4473000" />
       <workItem from="1747580826621" duration="10623000" />
       <workItem from="1747595805295" duration="2747000" />
+      <workItem from="1747751368157" duration="793000" />
     </task>
     <servers />
   </component>

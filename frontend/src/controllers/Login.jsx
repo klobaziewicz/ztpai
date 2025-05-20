@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Nav from "./Nav";
 
 function Login() {
     const [formData, setFormData] = useState({
@@ -47,6 +48,7 @@ function Login() {
 
     return (
         <div>
+            <Nav/>
             <h2>Login</h2>
             <form onSubmit={handleSubmit}>
                 <input
