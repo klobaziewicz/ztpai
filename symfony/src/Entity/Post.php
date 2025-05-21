@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\PostRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 #[ORM\Entity(repositoryClass: PostRepository::class)]
 class Post
@@ -26,9 +28,16 @@ class Post
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $title = null;
 
+    #[ORM\OneToMany(mappedBy: 'post', targetEntity: Comment::class, orphanRemoval: true)]
+    private Collection $comments;
+
+    #[ORM\OneToMany(mappedBy: 'post', targetEntity: LikePost::class, orphanRemoval: true)]
+    private Collection $likePost;
     public function __construct()
     {
         $this->createdAt = new \DateTime();
+        $this->comments = new ArrayCollection();
+        $this->likePost = new ArrayCollection();
     }
 
     public function getId(): ?int { return $this->id; }
@@ -52,5 +61,14 @@ class Post
         $this->title = $title;
 
         return $this;
+    }
+    public function getComments(): Collection
+    {
+        return $this->comments;
+    }
+
+    public function getLikePost(): Collection
+    {
+        return $this->likePost;
     }
 }

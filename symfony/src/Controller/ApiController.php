@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Post;
 use App\Entity\User;
 use App\Repository\UserRepository;
 use App\Repository\PostRepository;
@@ -114,9 +115,14 @@ class ApiController extends AbstractController
         $posts = $this->postRepository->findAll();
 
         $postData = array_map(function ($post) {
+            $user = $post->getUser();
             return [
                 'id' => $post->getId(),
-                'user' => $post->getUser(),
+                'user' => [
+                    'id' => $user->getId(),
+                    'email' => $user->getEmail(),
+                    'nick' => $user->getNick(),
+                ],
                 'content' => $post->getContent(),
                 'createdAt' => $post->getCreatedAt(),
             ];
@@ -231,11 +237,13 @@ class ApiController extends AbstractController
     #[Route('/notifications', name: 'notifications', methods: ['GET'])]
     public function notifications(UserInterface $user, NotificationRepository $notificationRepository): JsonResponse
     {
-        $notifications = $notificationRepository->findBy(
+        /*$notifications = $notificationRepository->findBy(
             ['toUser' => $user->getUserIdentifier()],
             ['createdAt' => 'DESC'],
             10
-        );
+        );*/
+
+        $notifications = $notificationRepository->findAll();
 
         $data = array_map(function ($notification) {
             return [
@@ -248,5 +256,31 @@ class ApiController extends AbstractController
         }, $notifications);
 
         return $this->json($data);
+    }
+    #[Route('/createPost', name: 'create_user', methods: ['POST'])]
+    public function createPost(Request $request): JsonResponse
+    {
+        $data = json_decode($request->getContent(), true);
+
+        if (!$data) {
+            throw new BadRequestHttpException('Invalid JSON');
+        }
+
+        $user = $this->getUser();
+        $title = $data['title'] ?? null;
+        $content = $data['content'] ?? null;
+
+        if (!$user || !$content || !$title ) {
+            throw new BadRequestHttpException('Missing required fields');
+        }
+
+        $post = new Post();
+        $post->setUser($user)
+            ->setTitle($title)
+            ->setContent($content);
+
+        $this->postRepository->save($post, true);
+
+        return $this->json(['message' => 'Post created successfully'], 201);
     }
 }
