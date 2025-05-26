@@ -51,8 +51,8 @@ function Register() {
     return (
         <div>
             <Nav/>
-            <h2>Register</h2>
             <form onSubmit={handleSubmit}>
+                <h2>Register</h2>
                 <input
                     type="email"
                     name="email"

@@ -6,8 +6,9 @@ import { Link } from 'react-router-dom';
 
 const StyledButton = styled(Button)(({ theme }) => ({
     margin: theme.spacing(1),
-    padding: theme.spacing(0.5, 1.5),
+    padding: theme.spacing(0.5, 1.2),
     borderRadius: theme.shape.borderRadius,
+    maxWidth: "15vw"
 }));
 
 const Nav = () => {
@@ -17,12 +18,12 @@ const Nav = () => {
             color="default"
             sx={{ borderBottom: 1, borderColor: "divider", width: "100vw", top: 0, display: "flex" }}
         >
-            <Toolbar sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", minWidth: "80px" }}>
-                <Box sx={{ display: "flex", flex: 1}}>
+            <Toolbar sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", minWidth: "80px", Widht: "10vw" }}>
+                <Box sx={{ display: "flex", flexGrow: 1}}>
                     <StarIcon sx={{ fontSize: 59 }} />
                 </Box>
 
-                <Box sx={{ display: "flex", justifyContent: "center", flex: 1}}>
+                <Box sx={{ display: "flex", justifyContent: "center", flexGrow: 1, Widht: "50vw"}}>
                     <Link to={`/`}>
                         <StyledButton variant="contained" color="primary">
                             <Typography>Home</Typography>
@@ -40,7 +41,7 @@ const Nav = () => {
                     </Link>
                 </Box>
 
-                <Box sx={{ display: "flex", alignItems: "center", gap: 1, pl: 2, flex: 1 }}>
+                <Box sx={{ display: "flex", alignItems: "center", flexGrow: 1, Widht: "40vw"}}>
                     <Link to={`/login`}>
                         <StyledButton variant="outlined">
                             <Typography>Sign in</Typography>

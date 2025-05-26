@@ -50,8 +50,8 @@ function Login() {
     return (
         <div>
             <Nav/>
-            <h2>Login</h2>
             <form onSubmit={handleSubmit}>
+                <h2>Login</h2>
                 <input
                     type="email"
                     name="email"
