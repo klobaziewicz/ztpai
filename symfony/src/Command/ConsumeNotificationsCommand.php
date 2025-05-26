@@ -21,6 +21,7 @@ if (!defined('PhpAmqpLib\Wire\IO\SOCKET_EINTR')) {
 #[AsCommand(name: 'app:consume-notifications')]
 class ConsumeNotificationsCommand extends Command
 {
+    protected static $defaultName = 'app:consume-notifications';
     private NotificationConsumer $consumer;
 
     public function __construct(NotificationConsumer $consumer)

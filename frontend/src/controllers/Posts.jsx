@@ -7,6 +7,12 @@ function Posts() {
     const [loadingPost, setLoadingPost] = useState(false);
     const [loadingLike, setLoadingLike] = useState(false);
     const [error, setError] = useState(null);
+    const [errorCreate, setErrorCreate] = useState(null);
+    const [creating, setCreating] = useState(false);
+    const [formData, setFormData] = useState({
+        title: '',
+        content: '',
+    });
 
     const fetchPosts = () => {
         setLoadingPost(true);
@@ -60,9 +66,75 @@ function Posts() {
         fetchPosts();
     }, []);
 
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prevState => ({
+            ...prevState,
+            [name]: value,
+        }));
+    };
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setCreating(true);
+        setError(null);
+
+        const token=localStorage.getItem('token');
+        fetch('http://localhost:8000/api/createPost', {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+                'Authorization': `Bearer ${token}`,
+            },
+            body: JSON.stringify(formData),
+        })
+            .then(response => {
+                if (!response.ok) {
+                    return response.json().then(err => { throw new Error(err.error || "Unknown error") });
+                }
+                return response.json();
+            })
+            .then(() => {
+                setFormData({ title: '', content: '' });
+                fetchPosts();
+            })
+            .catch(error => {
+                console.error('Create post error:', error);
+                setErrorCreate(error.message);
+            })
+            .finally(() => setCreating(false));
+    };
+
     return (
         <div>
             <Nav/>
+            <h2>Create Post</h2>
+            <form onSubmit={handleSubmit} style={{maxWidth: '600px', marginTop: '20px'}}>
+                <div>
+                    <label>Title:</label>
+                    <input
+                        type="text"
+                        name="title"
+                        value={formData.title}
+                        onChange={handleInputChange}
+                        required
+                    />
+                </div>
+                <div>
+                    <label>Content:</label>
+                    <input
+                        type="text"
+                        name="content"
+                        value={formData.content}
+                        onChange={handleInputChange}
+                        required
+                    />
+                </div>
+                <button type="submit" disabled={creating}>
+                    {creating ? "Creating..." : "Create Post"}
+                </button>
+                {errorCreate && <p style={{color: 'red'}}>Error: {errorCreate}</p>}
+            </form>
+
             <h2>Posts</h2>
             <button onClick={fetchPosts} disabled={loadingPost}>
                 {loadingPost ? "Ładowanie..." : "Odśwież"}
@@ -70,7 +142,7 @@ function Posts() {
             <ul>
                 {posts.map(post => (
                     <li key={post.id}>
-                            <strong>{post.user?.username || "Anonim"}</strong> - {post.content} - {post.createdAt.date}
+                        <strong>{post.user?.email || "Anonim"}</strong> - {post.content} - {post.createdAt.date}
                         <button onClick={() => polub(post.id)} disabled={loadingLike}>
                             {loadingLike ? "Ładowanie..." : "Polub"}
                         </button>

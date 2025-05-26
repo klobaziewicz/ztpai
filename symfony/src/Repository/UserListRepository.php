@@ -2,23 +2,23 @@
 
 namespace App\Repository;
 
-use App\Entity\User;
+use App\Entity\UserList ;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\ORM\EntityManagerInterface;
 
 /**
- * @extends ServiceEntityRepository<User>
+ * @extends ServiceEntityRepository<UserList >
  */
-class UserRepository extends ServiceEntityRepository
+class UserListRepository extends ServiceEntityRepository
 {
     private EntityManagerInterface $entityManager;
     public function __construct(ManagerRegistry $registry, EntityManagerInterface $entityManager)
     {
-        parent::__construct($registry, User::class);
+        parent::__construct($registry, UserList ::class);
         $this->entityManager = $entityManager;
     }
-    public function save(User $user, bool $flush = false): void
+    public function save(UserList  $user, bool $flush = false): void
     {
         $this->entityManager->persist($user);
 
@@ -28,7 +28,7 @@ class UserRepository extends ServiceEntityRepository
     }
 
     //    /**
-    //     * @return User[] Returns an array of User objects
+    //     * @return UserList[] Returns an array of UserList objects
     //     */
     //    public function findByExampleField($value): array
     //    {
@@ -42,7 +42,7 @@ class UserRepository extends ServiceEntityRepository
     //        ;
     //    }
 
-    //    public function findOneBySomeField($value): ?User
+    //    public function findOneBySomeField($value): ?UserList
     //    {
     //        return $this->createQueryBuilder('u')
     //            ->andWhere('u.exampleField = :val')

@@ -3,8 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Post;
-use App\Entity\User;
-use App\Repository\UserRepository;
+use App\Entity\UserList;
+use App\Repository\UserListRepository;
 use App\Repository\PostRepository;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,18 +23,18 @@ use Symfony\Component\Security\Core\User\UserInterface;
 #[Route('/api', name: 'api_')]
 class ApiController extends AbstractController
 {
-    private UserRepository $userRepository;
+    private UserListRepository $userRepository;
     private PostRepository $postRepository;
     private NotificationSender $notificationSender;
     private NotificationRepository $notificationRepository;
 
     private EntityManagerInterface $em;
     public function __construct(
-        UserRepository $userRepository,
-        PostRepository $postRepository,
-        NotificationSender $notificationSender,
+        UserListRepository     $userRepository,
+        PostRepository         $postRepository,
+        NotificationSender     $notificationSender,
         EntityManagerInterface $em,
-       NotificationRepository $notificationRepository
+        NotificationRepository $notificationRepository
     ) {
         $this->userRepository = $userRepository;
         $this->postRepository = $postRepository;
@@ -50,7 +50,7 @@ class ApiController extends AbstractController
 
         $users = $this->userRepository->findAll();
 
-        $userData = array_map(function (User $user) {
+        $userData = array_map(function (UserList $user) {
             return [
                 'id' => $user->getId(),
                 'name' => $user->getName(),
@@ -166,7 +166,7 @@ class ApiController extends AbstractController
             throw new BadRequestHttpException('Missing required fields');
         }
 
-        $user = new User();
+        $user = new UserList();
         $user->setName($name)
             ->setNick($nick)
             ->setEmail($email)
@@ -184,7 +184,7 @@ class ApiController extends AbstractController
         if (!isset($data['email'], $data['password'], $data['name'], $data['nick'])) {
             throw new BadRequestHttpException('Missing required fields');
         }
-        $user = new User();
+        $user = new UserList();
         $user->setName($data['name']);
         $user->setNick($data['nick']);
         $user->setEmail($data['email']);

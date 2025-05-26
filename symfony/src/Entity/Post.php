@@ -15,9 +15,9 @@ class Post
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\ManyToOne(targetEntity: User::class)]
+    #[ORM\ManyToOne(targetEntity: UserList::class)]
     #[ORM\JoinColumn(nullable: false)]
-    private ?User $user = null;
+    private ?UserList $user = null;
 
     #[ORM\Column(type: 'text')]
     private ?string $content = null;
@@ -43,8 +43,8 @@ class Post
     public function getId(): ?int { return $this->id; }
     public function setId(int $id): static { $this->id = $id; return $this; }
 
-    public function getUser(): ?User { return $this->user; }
-    public function setUser(User $user): static { $this->user = $user; return $this; }
+    public function getUser(): ?UserList { return $this->user; }
+    public function setUser(UserList $user): static { $this->user = $user; return $this; }
 
     public function getContent(): ?string { return $this->content; }
     public function setContent(string $content): static { $this->content = $content; return $this; }

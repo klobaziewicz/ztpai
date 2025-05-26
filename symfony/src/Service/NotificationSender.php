@@ -8,7 +8,8 @@ class NotificationSender
 {
     public function send(string $message): void
     {
-        $connection = new AMQPStreamConnection('rabbitmq', 5672, 'guest', 'guest');
+        //$connection = new AMQPStreamConnection('rabbitmq', 5672, 'guest', 'guest');
+        $connection = new AMQPStreamConnection('localhost', 5672, 'guest', 'guest');
         $channel = $connection->channel();
 
         $channel->queue_declare('notifications', false, true, false, false);
