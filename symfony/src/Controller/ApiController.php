@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Post;
+use App\Entity\Notification;
 use App\Entity\UserList;
 use App\Repository\UserListRepository;
 use App\Repository\PostRepository;
@@ -219,6 +220,15 @@ class ApiController extends AbstractController
         $likePost->setPost($post);
         $likePost->setUser($user);
         $this->em->persist($likePost);
+        $this->em->flush();
+
+        $notification = new Notification();
+        $notification->setFromUser($user->getNick());
+        $notification->setToUser($post->getUser()->getNick());
+        $notification->setPostId($post->getId());
+        $notification->setCreatedAt(new \DateTime());
+        $this->em->persist($notification);
+
         $this->em->flush();
 
         $message = json_encode([
