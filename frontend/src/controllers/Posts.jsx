@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Nav from "./Nav";
+import '../style/posts.css';
 import {Link} from "react-router-dom";
 
 function Posts() {
@@ -105,10 +106,10 @@ function Posts() {
     };
 
     return (
-        <div>
+        <div className="posts">
             <Nav/>
-            <h2>Create Post</h2>
-            <form onSubmit={handleSubmit} style={{maxWidth: '600px', marginTop: '20px'}}>
+            <form onSubmit={handleSubmit} style={{maxWidth: '70vw', marginTop: '10vh'}}>
+                <h2>Create Post</h2>
                 <div>
                     <label>Title:</label>
                     <input
@@ -122,6 +123,7 @@ function Posts() {
                 <div>
                     <label>Content:</label>
                     <input
+                        className="content"
                         type="text"
                         name="content"
                         value={formData.content}
@@ -136,7 +138,7 @@ function Posts() {
             </form>
 
             <h2>Posts</h2>
-            <button onClick={fetchPosts} disabled={loadingPost}>
+            <button className="refresh" onClick={fetchPosts} disabled={loadingPost}>
                 {loadingPost ? "Ładowanie..." : "Odśwież"}
             </button>
             <ul>

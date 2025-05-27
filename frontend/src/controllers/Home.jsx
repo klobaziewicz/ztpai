@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Nav from './Nav'
+import '../style/posts.css';
 
 function Home() {
     const [data, setData] = useState(null);
@@ -22,6 +23,9 @@ function Home() {
             <Nav />
             <div>
                 {data ? data.dane : "Loading..."}
+                <div className="text">
+                    <h1>Witaj! kliknij w przyciski nawigacji</h1>
+                </div>
             </div>
         </div>
     );

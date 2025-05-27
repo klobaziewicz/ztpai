@@ -18,7 +18,7 @@ const Nav = () => {
             color="default"
             sx={{ borderBottom: 1, borderColor: "divider", width: "100vw", top: 0, display: "flex" }}
         >
-            <Toolbar sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", minWidth: "80px", Widht: "10vw" }}>
+            <Toolbar sx={{ display: "flex", flexDirection: { xs: "column", sm: "row" }, justifyContent: "space-between", alignItems: "center", minWidth: "80px", Widht: "10vw", padding: { xs: 1, sm: 2 } }}>
                 <Box sx={{ display: "flex", flexGrow: 1}}>
                     <StarIcon sx={{ fontSize: 59 }} />
                 </Box>

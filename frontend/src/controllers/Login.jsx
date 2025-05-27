@@ -74,7 +74,7 @@ function Login() {
             </form>
 
             {error && <p style={{ color: 'red' }}>{error}</p>}
-            {success && <p style={{ color: 'green' }}>Login successful!</p>}
+            {success && <p style={{ color: 'lightgreen' }}>Login successful!</p>}
         </div>
     );
 }
