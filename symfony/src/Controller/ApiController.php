@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use OpenApi\Annotations as OA;
 use App\Entity\Post;
 use App\Entity\Notification;
 use App\Entity\UserList;
@@ -44,6 +45,27 @@ class ApiController extends AbstractController
         $this->notificationRepository = $notificationRepository;
     }
 
+    /**
+     * @OA\Get(
+     *     path="/api/users",
+     *     summary="Zwraca listę użytkowników",
+     *     tags={"Users"},
+     *     @OA\Response(
+     *         response=200,
+     *         description="Lista użytkowników",
+     *         @OA\JsonContent(
+     *             type="array",
+     *             @OA\Items(
+     *                 @OA\Property(property="id", type="integer"),
+     *                 @OA\Property(property="name", type="string"),
+     *                 @OA\Property(property="nick", type="string"),
+     *                 @OA\Property(property="email", type="string")
+     *             )
+     *         )
+     *     ),
+     *     security={{"bearerAuth": {}}}
+     * )
+     */
     #[Route('/users', name: 'users', methods: ['GET'])]
     public function getUsers(): JsonResponse
     {
