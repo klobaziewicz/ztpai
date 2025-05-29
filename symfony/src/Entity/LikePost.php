@@ -1,0 +1,48 @@
+<?php
+
+namespace App\Entity;
+
+use App\Repository\LikePostRepository;
+use Doctrine\DBAL\Types\Types;
+use Doctrine\ORM\Mapping as ORM;
+
+#[ORM\Entity(repositoryClass: LikesRepository::class)]
+#[ORM\Table(name: "likePost")]
+class LikePost
+{
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private ?int $id = null;
+
+    #[ORM\ManyToOne(targetEntity: Post::class, inversedBy: 'likePost')]
+    #[ORM\JoinColumn(nullable: false, onDelete: 'CASCADE')]
+    private ?Post $post = null;
+
+    #[ORM\ManyToOne(targetEntity: UserList::class)]
+    #[ORM\JoinColumn(nullable: true, onDelete: 'CASCADE')]
+    private ?UserList $user = null;
+
+    #[ORM\Column(type: 'datetime', nullable: true)]
+    private ?\DateTimeInterface $liked_at = null;
+
+    public function getId(): ?int { return $this->id; }
+
+    public function getPost(): ?Post { return $this->post; }
+    public function setPost(Post $post): static { $this->post = $post; return $this; }
+
+    public function getUser(): ?UserList { return $this->user; }
+    public function setUser(?UserList $user): static { $this->user = $user; return $this; }
+
+    public function getLikedAt(): ?\DateTimeInterface
+    {
+        return $this->liked_at;
+    }
+
+    public function setLikedAt(?\DateTimeInterface $liked_at): static
+    {
+        $this->liked_at = $liked_at;
+
+        return $this;
+    }
+}

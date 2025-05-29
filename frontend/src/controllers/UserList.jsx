@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Nav from "./Nav";
 
 const UsersList = () => {
     const [users, setUsers] = useState([]);
@@ -15,7 +16,13 @@ const UsersList = () => {
 
     const fetchUsers = () => {
         setLoading(true);
-        fetch('http://localhost:8000/api/users')
+        const token=localStorage.getItem('token');
+        fetch('http://localhost:8000/api/users',{
+                headers: {
+                    'Content-type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                }
+            })
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -44,10 +51,12 @@ const UsersList = () => {
         setCreating(true);
         setError(null);
 
+        const token=localStorage.getItem('token');
         fetch('http://localhost:8000/api/createUser', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
+                'Content-type': 'application/json',
+                'Authorization': `Bearer ${token}`,
             },
             body: JSON.stringify(formData),
         })
@@ -59,7 +68,7 @@ const UsersList = () => {
             })
             .then(() => {
                 setFormData({ name: '', nick: '', email: '', password: '' });
-                fetchUsers(); // Refresh the users list
+                fetchUsers();
             })
             .catch(error => {
                 console.error('Create user error:', error);
@@ -70,6 +79,7 @@ const UsersList = () => {
 
     return (
         <div>
+            <Nav/>
             <h2>Users List</h2>
             <button onClick={fetchUsers} disabled={loading}>
                 {loading ? "Loading..." : "Refresh"}

@@ -2,7 +2,7 @@
 
 namespace App\Tests\Controller;
 
-use App\Entity\User;
+use App\Entity\UserList;
 use App\Entity\Post;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,16 +14,16 @@ class ApiControllerIntegrationTest extends WebTestCase
         $client = static::createClient();
         $entityManager = self::getContainer()->get('doctrine')->getManager();
         $entityManager->createQuery('DELETE FROM App\Entity\Post')->execute();
-        $entityManager->createQuery('DELETE FROM App\Entity\User')->execute();
+        $entityManager->createQuery('DELETE FROM App\Entity\UserList')->execute();
 
         // Tworzymy użytkowników w bazie danych (poprzez EntityManager)
-        $user1 = new User();
+        $user1 = new UserList();
         $user1->setName('John Doe')
             ->setNick('johndoe')
             ->setEmail('john@example.com')
             ->setPassword('password123');
 
-        $user2 = new User();
+        $user2 = new UserList();
         $user2->setName('Jane Doe')
             ->setNick('janedoe')
             ->setEmail('jane@example.com')
@@ -50,7 +50,7 @@ class ApiControllerIntegrationTest extends WebTestCase
         $client = static::createClient();
 
         // Tworzymy użytkownika w bazie danych
-        $user = new User();
+        $user = new UserList();
         $user->setName('John Doe')
             ->setNick('johndoe')
             ->setEmail('john@example.com')
@@ -83,7 +83,7 @@ class ApiControllerIntegrationTest extends WebTestCase
         $client = static::createClient();
 
         // Tworzymy użytkownika i posty w bazie danych
-        $user = new User();
+        $user = new UserList();
         $user->setName('John Doe')
             ->setNick('johndoe')
             ->setEmail('john@example.com')
@@ -119,7 +119,7 @@ class ApiControllerIntegrationTest extends WebTestCase
         $client = static::createClient();
 
         // Tworzymy użytkownika i post w bazie danych
-        $user = new User();
+        $user = new UserList();
         $user->setName('John Doe')
             ->setNick('johndoe')
             ->setEmail('john@example.com')

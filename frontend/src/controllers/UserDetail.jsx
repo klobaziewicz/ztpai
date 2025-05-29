@@ -6,7 +6,12 @@ const UserDetail = () => {
     const [user, setUser] = useState(null);
 
     useEffect(() => {
-        fetch(`http://localhost:8000/api/user/${nick}`)
+        const token = localStorage.getItem('token');
+        fetch(`http://localhost:8000/api/user/${nick}`, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
             .then(response => {
                 if (!response.ok) {
                     throw new Error('User not found');
@@ -15,7 +20,7 @@ const UserDetail = () => {
             })
             .then(data => setUser(data))
             .catch(error => console.error('Fetch error:', error));
-    }, [nick]);  // Zmieniona zależność
+    }, [nick]);
 
     if (!user) return <p>Loading user details...</p>;
 

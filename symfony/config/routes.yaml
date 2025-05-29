@@ -26,4 +26,23 @@ api_createUser:
     path: /api/createUser
     controller: App\Controller\ApiController::createUser
     methods: POST
-
+register:
+    path: /api/register
+    controller: App\Controller\ApiController::register
+    methods: POST
+likePost:
+    path: /api/likePost
+    controller: App\Controller\ApiController::likePost
+    methods: POST
+notifications:
+    path: /api/notifications
+    controller: App\Controller\ApiController::notifications
+    methods: GET
+api_createPost:
+    path: /api/createPost
+    controller: App\Controller\ApiController::createPost
+    methods: POST
+login:
+    path: /api/login
+    #controller: App\Controller\ApiController::login
+    methods: POST

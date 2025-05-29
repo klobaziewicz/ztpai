@@ -5,15 +5,26 @@ namespace App\Repository;
 use App\Entity\Post;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\ORM\EntityManagerInterface;
 
 /**
  * @extends ServiceEntityRepository<Post>
  */
 class PostRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
+    private EntityManagerInterface $entityManager;
+    public function __construct(ManagerRegistry $registry, EntityManagerInterface $entityManager)
     {
         parent::__construct($registry, Post::class);
+        $this->entityManager = $entityManager;
+    }
+    public function save(Post $post, bool $flush = false): void
+    {
+        $this->entityManager->persist($post);
+
+        if ($flush) {
+            $this->entityManager->flush();
+        }
     }
 
 //    /**

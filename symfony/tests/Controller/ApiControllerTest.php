@@ -2,9 +2,9 @@
 
 namespace App\Tests\Controller;
 
-use App\Entity\User;
+use App\Entity\UserList;
 use App\Entity\Post;
-use App\Repository\UserRepository;
+use App\Repository\UserListRepository;
 use App\Repository\PostRepository;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,16 +15,16 @@ class ApiControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $user = (new User())
+        $user = (new UserList())
             ->setName('Test User')
             ->setNick('testuser')
             ->setEmail('test@example.com')
             ->setPassword('pass');
 
-        $repo = $this->createMock(UserRepository::class);
+        $repo = $this->createMock(UserListRepository::class);
         $repo->method('findAll')->willReturn([$user]);
 
-        self::getContainer()->set(UserRepository::class, $repo);
+        self::getContainer()->set(UserListRepository::class, $repo);
 
         $client->request('GET', '/api/users');
         $this->assertResponseIsSuccessful();
@@ -38,16 +38,16 @@ class ApiControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $user = (new User())
+        $user = (new UserList())
             ->setName('Nick Name')
             ->setNick('nick')
             ->setEmail('nick@example.com')
             ->setPassword('secret');
 
-        $repo = $this->createMock(UserRepository::class);
+        $repo = $this->createMock(UserListRepository::class);
         $repo->method('findOneBy')->willReturn($user);
 
-        self::getContainer()->set(UserRepository::class, $repo);
+        self::getContainer()->set(UserListRepository::class, $repo);
 
         $client->request('GET', '/api/user/nick');
         $this->assertResponseIsSuccessful();
@@ -60,10 +60,10 @@ class ApiControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $repo = $this->createMock(UserRepository::class);
+        $repo = $this->createMock(UserListRepository::class);
         $repo->method('findOneBy')->willReturn(null);
 
-        self::getContainer()->set(UserRepository::class, $repo);
+        self::getContainer()->set(UserListRepository::class, $repo);
 
         $client->request('GET', '/api/user/missing');
         $this->assertResponseStatusCodeSame(Response::HTTP_NOT_FOUND);
@@ -73,16 +73,16 @@ class ApiControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $user = (new User())
+        $user = (new UserList())
             ->setName('ID User')
             ->setNick('iduser')
             ->setEmail('id@example.com')
             ->setPassword('secret');
 
-        $repo = $this->createMock(UserRepository::class);
+        $repo = $this->createMock(UserListRepository::class);
         $repo->method('find')->willReturn($user);
 
-        self::getContainer()->set(UserRepository::class, $repo);
+        self::getContainer()->set(UserListRepository::class, $repo);
 
         $client->request('GET', '/api/userId/1');
         $this->assertResponseIsSuccessful();
@@ -92,10 +92,10 @@ class ApiControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $repo = $this->createMock(UserRepository::class);
+        $repo = $this->createMock(UserListRepository::class);
         $repo->method('find')->willReturn(null);
 
-        self::getContainer()->set(UserRepository::class, $repo);
+        self::getContainer()->set(UserListRepository::class, $repo);
 
         $client->request('GET', '/api/userId/999');
         $this->assertResponseStatusCodeSame(Response::HTTP_NOT_FOUND);
@@ -106,7 +106,7 @@ class ApiControllerTest extends WebTestCase
         $client = static::createClient();
 
         // Tworzymy użytkownika
-        $user = (new User())
+        $user = (new UserList())
             ->setId(1)
             ->setName('Test User')
             ->setNick('testnick')
@@ -117,7 +117,7 @@ class ApiControllerTest extends WebTestCase
         $post = new Post();
         $post->setId(1)
             ->setContent('Example post')
-            ->setUser($user); // Przypisujemy obiekt User, a nie string
+            ->setUser($user); // Przypisujemy obiekt UserList, a nie string
 
         // Tworzymy mock repozytorium
         $repo = $this->createMock(PostRepository::class);
@@ -135,7 +135,7 @@ class ApiControllerTest extends WebTestCase
 
     public function testGetPostByIdSuccess(): void
     {
-        $user = (new User())
+        $user = (new UserList())
             ->setId(1)
             ->setName('Test User')
             ->setNick('tester')
@@ -180,10 +180,10 @@ class ApiControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $repo = $this->createMock(UserRepository::class);
+        $repo = $this->createMock(UserListRepository::class);
         $repo->expects($this->once())->method('save');
 
-        self::getContainer()->set(UserRepository::class, $repo);
+        self::getContainer()->set(UserListRepository::class, $repo);
 
         $client->request(
             'POST',
